@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 02-may-2017, 16:47:09
-    Author     : Diego
+    Document   : index2
+    Created on : 08-may-2017, 17:08:39
+    Author     : Iulian
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Un pequeño paso para el hombre, a great..</h1>
+        <h1>Hello World!Alex ha estado aquí!!</h1>
     </body>
 </html>
