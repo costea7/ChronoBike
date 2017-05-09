@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 02-may-2017, 16:47:09
+    Document   : menuU
+    Created on : 08-may-2017, 18:11:34
     Author     : Diego
 --%>
 
@@ -12,8 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Un pequeño paso para el hombre, a great..</h1>
-        
-        <!--De aqui iremos a Source Packages > servlet > util  > login -->
+        <h1>Hello World!</h1>
     </body>
 </html>
