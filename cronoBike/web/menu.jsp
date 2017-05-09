@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <!--Creo que aqui sera que dependiendo del usuario que seas (rol) cargaras
+            una vista u otra; esto se hara haciendo uso de las JSPF
+        -->
         <h1>Hello World!</h1>
     </body>
 </html>

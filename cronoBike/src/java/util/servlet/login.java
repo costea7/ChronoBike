@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package util.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +7,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author jabih
+ * @author Diego
  */
-@WebServlet(urlPatterns = {"/newServlet"})
-public class newServlet extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = {"/login"})
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,18 +27,28 @@ public class newServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
+        HttpSession session = request.getSession();
+        String user = request.getParameter("user");
+        String pass = request.getParameter("pass");
+        
+        //De aqui engancharemos a la BD, y comprobaremos las credenciales
+        
+        System.out.println("----> user:  " + user);
+        System.out.println("----> pass: " + pass);
+        
+        response.sendRedirect(response.encodeRedirectURL("menu.jsp"));
+//         response.sendRedirect("s2.html");
+//        response.setContentType("text/html;charset=UTF-8");
+
+
+
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet newServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet newServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+           
+            
+            //Redirecionar en consecuencia
+            //NOTA: response.sendRedirect(response.encodeRedirectURL
         }
     }
 
