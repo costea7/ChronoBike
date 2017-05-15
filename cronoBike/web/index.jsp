@@ -13,18 +13,17 @@
     </head>
     <body>
         <h1>WIP index para cronobike</h1>
-        <form action="login">
-            Usuario::
+        <form action="loginprocess.jsp" method="post">  
+            Usuario:
             <input type="text" name="user" value="">
             <br>
-            Contraseña::
+            Contraseña:
             <input type="password" name="pass" value="">
             <br>
             <input type="submit" value="Enviar">
-
         </form>
 
         
-        <!--De aqui iremos a Source Packages > servlet > util  > login -->
+        <!--De aqui iremos a Source Packages > bean  > loginBean -->
     </body>
 </html>

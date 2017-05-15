@@ -9,7 +9,7 @@ package categorias;
  *
  * @author Iulian
  */
-public enum CategoriaCorredores {
+public enum CategoriaCorredor {
     
     PROMESA, PRINCIPIANTE, ALEVIN, INFANTIL, CADETE, F_CAD, JUNIOR, F_JUN, 
     ELITE, SUB23, ELITE_UCI, F_ELITE, F_SUB23, F_ELITE_UCI, MASTER_30, 

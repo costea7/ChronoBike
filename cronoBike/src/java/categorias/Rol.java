@@ -7,10 +7,10 @@ package categorias;
 
 /**
  *
- * @author Iulian
+ * @author jabih
  */
-public enum CategoriaArbitros {
+public enum Rol {
     
-    ASPIRANTE_JUVENIL, ASPIRANTE, AUTONOMICO, NACIONAL, NACIONAL_ELITE, INTERNACIONAL_UCI
+    ADMINISTRADOR, CORREDOR, ARBITRO
     
 }
