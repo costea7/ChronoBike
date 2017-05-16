@@ -9,7 +9,7 @@ package categorias;
  *
  * @author jabih
  */
-public enum Sanciones {
+public enum Sancion {
     
     SALIDA_SIN_CONTROL_DE_FIRMA, USO_ELEMENTOS_NO_ESENCIALES, 
     NUMERO_IDENTIFICACION_NO_RECONOCIBLE_O_VISIBLE, NO_ENTREGAR_DORSAL_ABANDONO,

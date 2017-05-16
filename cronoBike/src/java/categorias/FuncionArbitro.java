@@ -9,7 +9,7 @@ package categorias;
  *
  * @author Iulian
  */
-public enum FuncionesArbitros {
+public enum FuncionArbitro {
     
     PRESIDENTE, ADJUNTO1, ADJUNTO2, JUEZ_LLEGADA, CRONOMETRADOR, 
     COMISARIO_EN_MOTO, COMISARIO_EN_FORMACION
