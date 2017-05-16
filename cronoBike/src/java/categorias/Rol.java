@@ -14,4 +14,3 @@ public enum Rol {
     ADMINISTRADOR, 
     CORREDOR, 
     ARBITRO;
-}

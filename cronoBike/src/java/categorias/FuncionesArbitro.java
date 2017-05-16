@@ -9,13 +9,8 @@ package categorias;
  *
  * @author Iulian
  */
-public enum CategoriaArbitro {
+public enum FuncionesArbitro {
     
-    ASPIRANTE_JUVENIL, 
-    ASPIRANTE, 
-    AUTONOMICO, 
-    NACIONAL, 
-    NACIONAL_ELITE, 
-    INTERNACIONAL_UCI;    
-    
+    PRESIDENTE, ADJUNTO1, ADJUNTO2, JUEZ_LLEGADA, CRONOMETRADOR, 
+    COMISARIO_EN_MOTO, COMISARIO_EN_FORMACION
 }

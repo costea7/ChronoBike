@@ -33,6 +33,6 @@ public enum CategoriaCorredor {
     F_MASTER_50, 
     F_MASTER_60,
     CICLOTURISTA, 
-    F_CICLOTURISTA;
+    F_CICLOTURISTA;      
         
 }
