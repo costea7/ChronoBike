@@ -11,6 +11,7 @@ package categorias;
  */
 public enum Rol {
     
-    ADMINISTRADOR, CORREDOR, ARBITRO
-    
+    ADMINISTRADOR, 
+    CORREDOR, 
+    ARBITRO;
 }
