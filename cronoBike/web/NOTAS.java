@@ -1,3 +1,10 @@
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import webSocket.wsHandler;
+
 /**
  *
  * Esto es una clase de notas, porque asi lo cree mas facil
@@ -20,5 +27,10 @@ public class NOTAS {
      *
      *  
      */
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+               wsHandler.broadcastMessage("Hello World");
+}
     
 }

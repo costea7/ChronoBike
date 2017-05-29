@@ -7,11 +7,19 @@
 package bean;  
   
 public class LoginBean {  
-private String user,pass;  
+private String user,pass,roll;  
   
 public String getUser() {  
     return user;  
 }  
+
+    public String getRoll() {
+        return roll;
+    }
+
+    public void setRoll(String roll) {
+        this.roll = roll;
+    }
   
 public void setUser(String user) {  
     this.user = user;  

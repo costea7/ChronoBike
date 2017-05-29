@@ -5,17 +5,42 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+
+<%
+    int status = (Integer)session.getAttribute("Rol");
+    String file = "";
+    switch (status){
+         
+        case 2: 
+            file = "arbitro.jspf";
+            break;
+            
+        case 3:
+             file = "corredor.jspf";
+             break;
+        
+        case 4:
+            file = "admin.jspf";
+            break;
+        default:
+            file = "error.jspf";
+    }
+    System.out.println(status);
+    System.out.println(file);
+    //<%@include file="/WEB-INF/jspf/"
+    
+    //NOTA: hacer direcciones chusta/normal
+%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        
-        <!--Creo que aqui sera que dependiendo del usuario que seas (rol) cargaras
-            una vista u otra; esto se hara haciendo uso de las JSPF
-        -->
+    
         <h1>Hello World!</h1>
-    </body>
+        
+    
 </html>
