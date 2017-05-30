@@ -20,7 +20,7 @@
 	chatIn = document.getElementById("message-input");
 	chatOut = document.getElementById("message-output");
 	
-	webSocket = new WebSocket("ws://10.1.21.56:8080/cronoBike/simple");
+	webSocket = new WebSocket("ws://localhost:8080/cronoBike/simple");
 	webSocket.onopen = function() {
 		console.log("Socket is now open.");
 	};

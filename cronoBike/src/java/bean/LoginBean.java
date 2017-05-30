@@ -13,13 +13,13 @@ public String getUser() {
     return user;  
 }  
 
-    public String getRoll() {
-        return roll;
-    }
+public String getRoll() {
+    return roll;
+}
 
-    public void setRoll(String roll) {
-        this.roll = roll;
-    }
+public void setRoll(String roll) {
+    this.roll = roll;
+}
   
 public void setUser(String user) {  
     this.user = user;  

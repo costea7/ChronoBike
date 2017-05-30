@@ -14,21 +14,25 @@
     switch (status){
          
         case 2: 
-            file = "arbitro.jspf";
+            %>
+            <%@include file="/WEB-INF/jspf/arbitro.jspf"%>
+            <%
             break;
-            
         case 3:
-             file = "corredor.jspf";
-             break;
-        
-        case 4:
-            file = "admin.jspf";
+            %>
+            <%@include file="/WEB-INF/jspf/corredor.jspf"%>
+            <%
             break;
-        default:
-            file = "error.jspf";
+        case 4:
+             %>
+             <%@include file="/WEB-INF/jspf/admin.jspf"%>
+             <%
+             break;    
+         //nunca se podría dar un estado que no fuera 2,3 o 4    
+         /* default:
+               file = "error.jspf";*/
     }
-    System.out.println(status);
-    System.out.println(file);
+
     //<%@include file="/WEB-INF/jspf/"
     
     //NOTA: hacer direcciones chusta/normal
@@ -39,8 +43,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    
-        <h1>Hello World!</h1>
+   
         
     
 </html>
