@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class NOTAS {
     /**
-     * Usar webSocket para enlazar con las notificaciones (la campanita) 
+     * Usar webSocket para 3enlazar con las notificaciones (la campanita) 
      *      que nos indique el numero
      *      (response encode)
      *      DemoWeb01 > demo_servlet > calculaSuma
