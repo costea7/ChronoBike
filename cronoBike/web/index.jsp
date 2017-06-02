@@ -4,7 +4,10 @@
     Author     : Diego
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="Usuarios" class="bean.BeanUsuarios" scope="application"/>
+<jsp:useBean id="notifi" class="bean.BeanNotificacion" scope="application"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,6 +65,13 @@
         <div id="message-output" style="width: 500px; height: 200px; overflow: scroll; background: white">
         </div>
         <input type="text" id= "message-input" style="width: 500px;"/>
-          
+        
+                <br/>
+        <br/>
+        <fieldset>
+            <legend>Personas registradas:</legend>
+            Hay ${notifi.getNumnews('00000000001')} personas en la base de datos.
+            <br/>
+        </fieldset>
     </body>
 </html>

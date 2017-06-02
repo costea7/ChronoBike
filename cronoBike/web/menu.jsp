@@ -33,8 +33,11 @@
                file = "error.jspf";*/
     }
 
-    //<%@include file="/WEB-INF/jspf/"
     
+    System.out.println(">Return: " + file);
+   // String a = (String) session.getAttribute("user");
+    //System.out.println(">User: " + session.getId());
+    //System.out.println(">User: " + a);
     //NOTA: hacer direcciones chusta/normal
 %>
 
@@ -43,7 +46,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-   
-        
-    
+    <body>
+        <form action="notificaciones.jsp" method="post">  
+            <input type="submit" value="Ver notificac">            
+        </form>
+    </body>
+
+
+
+
+
 </html>

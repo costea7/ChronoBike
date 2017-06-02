@@ -6,56 +6,101 @@
 package bd;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author jabih
+ * @author Diego
  */
 @Entity
+@Table(name = "Usuarios")
+@XmlRootElement
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "Id")
+    private String id;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "Email")
     private String email;
-    private String password;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "Pass")
+    private String pass;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "Rol")
     private String rol;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 11)
+    @Column(name = "UCI-ID")
+    private String uciId;
 
-    public Long getId() {
-        return id;
+    public Usuario() {
+    }
+    public Usuario(String id) {
+        this.id = id;
+    }
+    public Usuario(String id, String email, String pass, String rol, String uciId) {
+        this.id = id;
+        this.email = email;
+        this.pass = pass;
+        this.rol = rol;
+        this.uciId = uciId;
     }
 
-    public void setId(Long id) {
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
         this.id = id;
     }
 
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getRol() {
         return rol;
     }
-
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    public String getUciId() {
+        return uciId;
+    }
+    public void setUciId(String uciId) {
+        this.uciId = uciId;
     }
 
     @Override
@@ -80,7 +125,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "bd.usuario[ id=" + id + " ]";
+        return "db.Usuarios[ id=" + id + " ]";
     }
-
+    
 }
