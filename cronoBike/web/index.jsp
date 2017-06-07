@@ -27,16 +27,16 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/index2.html"><b>Chrono</b>BIKE</a>
+    <a href="/menu.jsp"><b>Chrono</b>BIKE</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Abrir sesión</p>
+    <p class="login-box-msg">Iniciar sesión</p>
 
     <form action="loginServlet" method="post">
       <div class="form-group has-feedback">
         <input type="user" name="user" class="form-control" placeholder="Nombre usuario">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" name="pass" class="form-control" placeholder="Contraseña">

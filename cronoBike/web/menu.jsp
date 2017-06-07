@@ -11,8 +11,7 @@
 <%
     int status = (Integer)session.getAttribute("Rol");
     String file = "";
-    switch (status){
-         
+    switch (status){        
         case 2: 
             %>
             <%@include file="/WEB-INF/jspf/arbitro.jspf"%>

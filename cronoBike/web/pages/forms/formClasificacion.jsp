@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script>
+    function checkFileSize(inputFile) {
+    var MAXSIZE = 10 * 1024 * 1024; // 10MB
+
+    if (inputFile.files && inputFile.files[0].size > MAXSIZE) {
+        alert("File too large."); // Do your thing to handle the error.
+        inputFile.value = null; // Clear the field.
+    }
+}
+    
+ </script>
+ <!DOCTYPE html>
+ 
+ 
 <html>
 <head>
   <meta charset="utf-8">
@@ -145,129 +159,43 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tabla sanciones
+        Clasificaciones
       </h1>
+    
       <ol class="breadcrumb">
-        <li><a href="../../menu.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Mail Box</li>
+        <li><a href="../../menu.jsp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+        <li><a href= "../menuPruebaArbitro.html"><i class=""></i>Opciones prueba</a></li>
+        <li class="active">Clasificaciones</li> 
       </ol>
+        
     </section>
+    
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-3">
-          <a href="../../compose.html" class="btn btn-primary btn-block margin-bottom">Redactar</a>
-
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">E-mail</h3>
-
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><i class="fa fa-inbox"></i> Recibidos
-                  <span class="label label-primary pull-right"></span></a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> Eviados</a></li>
-                
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>       
-          <!-- /.box -->
-          
+        
+        <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Subir clasificación:</h3>
         </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Recibidos</h3>
-
-              <div class="box-tools pull-right">
-                
-              </div>
-              <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+       
+       
+             <form method="post" action="<%=response.encodeURL("../../FileUploader")%>" enctype="multipart/form-data">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputFile">Subir archivo</label>
+                  <br>
+                  <input type="file" name="fichero" size="70" onchange="checkFileSize(this)">   
                 </div>
-                <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-                <div class="pull-right">
-                  1-50/200
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
               </div>
-              <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped">
-                  <tbody>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"></a></td>
-                    <td class="mailbox-name"><a href="read-mail.html">Alex</a></td>
-                    <td class="mailbox-subject"><b>Correo ejemplo</b>
-                    </td>
-                 
-                    
-                  </tr>
-                  
-                 
-                  </tbody>
-                </table>
-                <!-- /.table -->
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Enviar fichero</button>
               </div>
-              <!-- /.mail-box-messages -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                </div>
-                <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-                <div class="pull-right">
-                  1-50/200
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
-            </div>
-          </div>
-          <!-- /. box -->
+            </form>
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+
     </section>
   </div>
-  
-  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
