@@ -11,6 +11,7 @@
 <%
     int status = (Integer)session.getAttribute("Rol");
     String file = "";
+    String uciID = (String)session.getAttribute("uci");
     switch (status){        
         case 2: 
             %>

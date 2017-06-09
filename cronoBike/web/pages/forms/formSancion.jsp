@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script>
+    function checkFileSize(inputFile) {
+    var MAXSIZE = 10 * 1024 * 1024; // 10MB
+
+    if (inputFile.files && inputFile.files[0].size > MAXSIZE) {
+        alert("File too large."); // Do your thing to handle the error.
+        inputFile.value = null; // Clear the field.
+    }
+}
+    
+ </script>
+ <!DOCTYPE html>
+ 
+ 
 <html>
 <head>
   <meta charset="utf-8">
@@ -82,7 +96,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Corredor</span>
+              <span class="hidden-xs">Árbitro</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -90,7 +104,7 @@
                 <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Usuario corredor      
+                  Usuario árbitro      
                 </p>
               </li>
               
@@ -121,7 +135,7 @@
           <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Usuario corredor</p>
+          <p>Usuario árbitro</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -145,56 +159,45 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Formulario inscripción
+        Sanciones
       </h1>
     
       <ol class="breadcrumb">
         <li><a href="../../menu.jsp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li class="active">Formulario inscripción</li> 
+        <li><a href= "../menuPruebaArbitro.html"><i class=""></i>Opciones prueba</a></li>
+        <li class="active">Sanciones</li> 
       </ol>
         
     </section>
-   
+    
     <!-- Main content -->
     <section class="content">
-       
-      <div class="row">
-        <div class="col-md-6">
-      <!-- SELECT2 EXAMPLE -->
-      
-      <div class="box box-default">
         
-        <!-- /.box-header -->
-        <div class="box-body">
-              <div class="form-group"> 
-                  
-                <!-- DNI --> 
-                <div class="form-group" >
-                  <label>Número licencia</label>
-                  <input type="text" class="form-control" id ="idDNI" placeholder="Introducir ...">
-                  </div>               
-                <div class="col-md-3">           
-                <a href="../../menu.jsp" class="btn btn-primary btn-block bottom-right">Inscribirse</a>  
-              </div>
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
+        <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Subir Sanción:</h3>
+          </br>
+          <h4 class="box-title">Licencia;Nombre;Apellido1;Apellido2;Ninfrac;Multa;Observacion;Dias </h4>
         </div>
        
-        
-      </div>
-    </div>
-        
-      <!-- /.box -->
+       
+             <form method="post" action="<%=response.encodeURL("../../FileUploader")%>" enctype="multipart/form-data">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputFile">Subir archivo</label>
+                  <br>
+                  <input type="file" name="fichero" size="70" onchange="checkFileSize(this)">   
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Enviar fichero</button>
+              </div>
+            </form>
+        </div>
+
     </section>
-  
-    <!-- /.content -->
-    
-    <!-- /.content -->
   </div>
-  
-  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">

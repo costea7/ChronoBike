@@ -176,6 +176,8 @@
         <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title">Subir clasificación:</h3>
+          </br>
+           <h4 class="box-title">Posicion;Dorsal;Nombre;Apellido1;Apellido2;Equipo;Tiempo</h4>
         </div>
        
        

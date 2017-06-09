@@ -1,4 +1,14 @@
+<%@page import="bd.Notificacion"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="notificaciones" class="bd.bean.BeanNotificacion" scope="application"/>
+
 <!DOCTYPE html>
+
+<%        
+    String user = (String)session.getAttribute("uci");
+%>
 <html>
 <head>
   <meta charset="utf-8">
@@ -64,17 +74,17 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">X</span>
+             
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Tienes notificaciones </li>
+              <li class="header"> notificaciones </li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
       
                 </ul>
               </li>
-              <li class="footer"><a href="#">Ver todas</a></li>
+              <li class="footer"><a href="pages/tables/notificaciones.jsp">Ver todas</a></li>
             </ul>
           </li>
           
@@ -131,9 +141,8 @@
         <li class="header">MENU</li>
   
         <li>
-          <a href="../../pages/mailbox/mailbox.html">
+          <a href="pages/mailbox/mailbox.html">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            
           </a>
         </li>
       </ul>
@@ -141,66 +150,88 @@
     <!-- /.sidebar -->
   </aside>
 
- <div class="content-wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Formulario inscripción
+        ChronoBike
+        <small>Panel de control</small>
       </h1>
-    
       <ol class="breadcrumb">
-        <li><a href="../../menu.jsp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li class="active">Formulario inscripción</li> 
-      </ol>
+        <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
         
-    </section>
-   
+      </ol>
+    </section
+    
     <!-- Main content -->
     <section class="content">
-       
-      <div class="row">
-        <div class="col-md-6">
-      <!-- SELECT2 EXAMPLE -->
+     
       
-      <div class="box box-default">
+     
         
-        <!-- /.box-header -->
-        <div class="box-body">
-              <div class="form-group"> 
+        <!-- TABLE: LATEST ORDERS -->
+          <div class="box box-info">
+           
+            <!-- /.box-header -->
+            <div class="box-body">
+                
+        <%
+        List<Notificacion> lista = new ArrayList<Notificacion>();
+
+        lista = notificaciones.getNotificaciones(user, 0);
+        if(!lista.isEmpty()){
+        %>               
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Categoria</th>
+                    <th>Fecha</th>
+                    <th>Descripcion</th>
+                  </tr>       
+                  <%
+                for (int i = 0; i < lista.size(); i++) {
+            %>
+            <tr>
+                <td><%= (lista.get(i)).getTipo()%></td>
+                <td><%= (lista.get(i)).fechaString()%></td>  
+                <td><%= (lista.get(i)).getTexto()%></td>
+            </tr>
+                 <%}%>
+                  </thead>
+                  <tbody>
+        </table>    
+        <%
+        }else{
+        %>
+        <b> NO tienes notificaciones </b>
+        <%
+        }        
+        %> 
+        <br/>
+        
+      
                   
-                <!-- DNI --> 
-                <div class="form-group" >
-                  <label>Número licencia</label>
-                  <input type="text" class="form-control" id ="idDNI" placeholder="Introducir ...">
-                  </div>               
-                <div class="col-md-3">           
-                <a href="../../menu.jsp" class="btn btn-primary btn-block bottom-right">Inscribirse</a>  
+                  </tbody>
+                 
+               
+                
               </div>
+              <!-- /.table-responsive -->
             </div>
-            <!-- /.col -->
+             <a href="../../menu.jsp" class="btn btn-primary btn-block">Volver</a>  
           </div>
-          <!-- /.row -->
-        </div>
-       
-        
-      </div>
-    </div>
-        
-      <!-- /.box -->
+
     </section>
-  
-    <!-- /.content -->
-    
     <!-- /.content -->
   </div>
-  
-  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="../../menu.jsp">Chrono Bike</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="menu.jsp">Chrono Bike</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -234,7 +265,7 @@
 <script src="../../plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
 <script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- Bootstrap WYSIHTML5 -->

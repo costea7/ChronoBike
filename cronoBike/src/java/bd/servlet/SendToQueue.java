@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package demo.servlet;
+package bd.servlet;
 
 import utilidades.LectorCSV;
 import java.io.IOException;

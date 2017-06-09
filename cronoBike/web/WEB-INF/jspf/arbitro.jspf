@@ -1,4 +1,12 @@
+<jsp:useBean id="notificacionesA" class="bd.bean.BeanNotificacion" scope="application"/>
+<jsp:useBean id="carrerasA" class="bd.bean.BeanCarrera" scope="application"/>
+<%@page import="bd.Carrera"%>
 <!DOCTYPE html>
+
+<%        
+    String userA = (String)session.getAttribute("uci");
+
+%>
 <html>
 <head>
   <meta charset="utf-8">
@@ -64,17 +72,18 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">X</span>
+              <span class="label label-warning">
+               <%=notificacionesA.getNumnews(uciID)%>
+              </span>
             </a>
             <ul class="dropdown-menu">
               <li class="header"> notificaciones </li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-      
                 </ul>
               </li>
-              <li class="footer"><a href="#">Ver todas</a></li>
+              <li class="footer"><a href="pages/tables/notificaciones.jsp">Ver todas</a></li>
             </ul>
           </li>
           
@@ -160,7 +169,71 @@
         <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Pruebas</h3>
+              <h3 class="box-title">Pruebas Pendientes</h3>
+
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                
+                          <%
+       List<Carrera> listaPendientes = new ArrayList<Carrera>();
+       List<Carrera> listaFinalizadas = new ArrayList<Carrera>();
+       
+       listaPendientes = carrerasA.getCArbitroPendientes(userA, 0);
+       listaFinalizadas = carrerasA.getCArbitroFin(userA, 0);
+       
+       Set<Carrera> nombreCarreraA = new HashSet<Carrera>();
+      
+       nombreCarreraA.addAll(listaPendientes);
+       nombreCarreraA.removeAll(listaFinalizadas);
+ 
+       List<Carrera> listaFinalA = new ArrayList<Carrera>(nombreCarreraA);
+        
+        %>
+                
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Nombre Prueba</th>
+                    <th>Fecha elegida</th>
+                    <th>Lugar de la prueba</th>        
+                    <th>Categoria</th>   
+                  </tr>
+                  </thead>
+                  
+                   <%
+               for (int i = 0; i < listaFinalA.size(); i++) {
+                  %>
+                  <tbody>
+                  <tr>
+                    <td>
+                        <form action="ArbitroServlet" method="post">
+                            <input type="hidden" name="idCarrera" class="form-control"
+                                   value="<%= (listaFinalA.get(i)).getIdCarrera()%>" placeholder="">
+                            <div class="col-xs-9">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat"><%= (listaFinalA.get(i)).getNombrePrueba()%></button>
+                            </div>
+                        </form>
+                        
+                       
+                    <td><%= (listaFinalA.get(i)).fechaInicioString()%></td>
+                    <td><%= (listaFinalA.get(i)).getLugarCelebracion()%></td>
+                    <td><%= (listaFinalA.get(i)).getCategoriaPruebaString()%></td>
+                  </tr>
+                  
+                     <%}%> 
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+           
+          </div>
+        
+         <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Pruebas Finalizadas</h3>
 
             </div>
             <!-- /.box-header -->
@@ -172,14 +245,22 @@
                     <th>Nombre Prueba</th>
                     <th>Fecha elegida</th>
                     <th>Lugar de la prueba</th>        
+                    <th>Categoria</th>         
                   </tr>
                   </thead>
+                      <%
+               for (int i = 0; i < listaFinalizadas.size(); i++) {
+                  %>
                   <tbody>
-                  <tr>
-                    <td><a href="pages/menuPruebaArbitro.html">Challenge Aragón Master</a></td>
-                    <td>29/04/2017</td>
-                    <td>Ejea de los Caballeros</td>
+                   <tr>
+                    <td>
+                        <a href="pages/menuPruebaArbitro.jsp"><%= (listaFinalizadas.get(i)).getNombrePrueba()%></a></td>
+                    <td><%= (listaFinalizadas.get(i)).fechaInicioString()%></td>
+                    <td><%= (listaFinalizadas.get(i)).getLugarCelebracion()%></td>
+                    <td><%= (listaFinalizadas.get(i)).getCategoriaPruebaString()%></td>
                   </tr>
+                  
+                     <%}%> 
                   </tbody>
                 </table>
               </div>
@@ -187,6 +268,7 @@
             </div>
            
           </div>
+        
 
     </section>
     <!-- /.content -->

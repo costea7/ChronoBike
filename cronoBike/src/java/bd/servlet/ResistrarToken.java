@@ -1,12 +1,12 @@
+package bd.servlet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bd.servlet;
 
-
-import bd.DAO.LoginDao;
+import bd.DAO.NTokenDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,10 +18,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Iulian
+ * @author alumno
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/registrarToken"})
+public class ResistrarToken extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,28 +35,16 @@ public class loginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession sesion = request.getSession();
+        System.out.println("funciona");
         
-        String user = request.getParameter("user");
-        String password = request.getParameter("pass");
-        
-        
-        String uci;
-        
-        int respuesta = LoginDao.validar(user, password);
-        System.out.println(respuesta);
-        if((respuesta >= 2) && (respuesta < 5)) {
-           sesion.setAttribute("Rol", respuesta);
-           uci = LoginDao.getUCI(user, password);
-            System.out.println("aaaaaaa" + uci);
-           sesion.setAttribute("uci", uci);
-           response.sendRedirect(response.encodeRedirectURL("menu.jsp"));
-        }
-        else{
-            response.sendRedirect(response.encodeRedirectURL("index.jsp"));
-        }
+        String UCI = request.getParameter("UCI");
+        String token = request.getParameter("token");
         
         
+        //pasarlos a nttokenDAO.INSERTAR
+        
+        NTokenDAO.insertOrUpdate(UCI, token);
+     
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

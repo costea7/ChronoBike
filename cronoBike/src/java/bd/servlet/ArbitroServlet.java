@@ -5,8 +5,6 @@
  */
 package bd.servlet;
 
-
-import bd.DAO.LoginDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Iulian
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
+@WebServlet(name = "ArbitroServlet", urlPatterns = {"/ArbitroServlet"})
+public class ArbitroServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,26 +35,15 @@ public class loginServlet extends HttpServlet {
         
         HttpSession sesion = request.getSession();
         
-        String user = request.getParameter("user");
-        String password = request.getParameter("pass");
+        String idCarrera = (request.getParameter("idCarrera"));
+       
+        sesion.setAttribute("idCarreraA", idCarrera);
+ 
         
         
-        String uci;
-        
-        int respuesta = LoginDao.validar(user, password);
-        System.out.println(respuesta);
-        if((respuesta >= 2) && (respuesta < 5)) {
-           sesion.setAttribute("Rol", respuesta);
-           uci = LoginDao.getUCI(user, password);
-            System.out.println("aaaaaaa" + uci);
-           sesion.setAttribute("uci", uci);
-           response.sendRedirect(response.encodeRedirectURL("menu.jsp"));
-        }
-        else{
-            response.sendRedirect(response.encodeRedirectURL("index.jsp"));
-        }
         
         
+      response.sendRedirect(response.encodeRedirectURL("pages/menuPruebaArbitro.jsp")); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

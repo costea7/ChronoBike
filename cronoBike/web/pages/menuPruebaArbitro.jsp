@@ -1,4 +1,11 @@
+<jsp:useBean id="carrerasA2" class="bd.bean.BeanCarrera" scope="application"/>
+<%@page import="bd.Carrera"%>
 <!DOCTYPE html>
+<%        
+    int idCarrera = Integer.valueOf((String)session.getAttribute("idCarreraA"));
+
+   
+%>
 <html>
 <head>
   <meta charset="utf-8">
@@ -82,7 +89,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">√Årbitro</span>
+              <span class="hidden-xs">¡rbitro</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -90,7 +97,7 @@
                 <img src="../dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Usuario √°rbitro      
+                  Usuario ·rbitro      
                 </p>
               </li>
               
@@ -121,7 +128,7 @@
           <img src="../dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Usuario √°rbitro</p>
+          <p>Usuario ·rbitro</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -150,24 +157,31 @@
         
       <ol class="breadcrumb">
         <li><a href="../menu.jsp"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li class="active">Informaci√≥n prueba</li> 
+        <li class="active">InformaciÛn prueba</li> 
       </ol>
         
     </section>
     
+    <%
+    
+    Carrera carreraActual = carrerasA2.getCarrera(idCarrera);
+    int participantes = carrerasA2.getNumParticipantes(carreraActual.getIdCarrera());
+    
+    
+    %>
     <section class="content">
         <div class="row">
          <div class="col-xs-12"> 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Sanciones</h3>
+              
             </div>   
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th style="width: 10px">#</th>
+
                   <th>Nombre prueba</th>
                   <th>Fecha elegida</th>
                   <th>Lugar de la prueba</th>
@@ -176,10 +190,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Ejemplo nombre</td>
-                  <td>25/05/2014</td>
-                  <td>aqui</td>
-                  <td>250</td>
+                  <td><%= carreraActual.getNombrePrueba()%></td>
+                  <td><%= carreraActual.fechaInicioString()%></td>
+                  <td><%= carreraActual.getLugarCelebracion()%></td>
+                  <td><%= participantes %></td>
+                  
                 </tr>
               </table>
                 <div class="box-footer clearfix">     
@@ -207,11 +222,12 @@
         <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
           <!-- small box -->
+          
           <div class="small-box bg-yellow">
             <div class="inner">
               <h4>Sanciones</h4>
             </div>   
-            <a href="tables/sanciones.html" class="small-box-footer">Consulta <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="forms/formSancion.jsp" class="small-box-footer">Consulta <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
